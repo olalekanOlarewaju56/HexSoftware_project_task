@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .todo-container {
+            background: #fff;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            display: flex;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li.completed span {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .delete-btn {
+            background: red;
+            border: none;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background: darkred;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+
+    <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <button onclick="addTask()">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+<script>
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    function saveTasks() {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function renderTasks() {
+        taskList.innerHTML = "";
+        tasks.forEach((task, index) => {
+            const li = document.createElement("li");
+            if (task.completed) li.classList.add("completed");
+
+            li.innerHTML = `
+                <span onclick="toggleTask(${index})">${task.text}</span>
+                <button class="delete-btn" onclick="deleteTask(${index})">X</button>
+            `;
+
+            taskList.appendChild(li);
+        });
+    }
+
+    function addTask() {
+        if (taskInput.value.trim() === "") return;
+
+        tasks.push({
+            text: taskInput.value,
+            completed: false
+        });
+
+        taskInput.value = "";
+        saveTasks();
+        renderTasks();
+    }
+
+    function toggleTask(index) {
+        tasks[index].completed = !tasks[index].completed;
+        saveTasks();
+        renderTasks();
+    }
+
+    function deleteTask(index) {
+        tasks.splice(index, 1);
+        saveTasks();
+        renderTasks();
+    }
+
+    renderTasks();
+</script>
+
+</body>
+</html>
