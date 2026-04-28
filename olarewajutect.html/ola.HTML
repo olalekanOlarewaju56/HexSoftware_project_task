@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OlarewajuTech - AC & Fridge Repair Abuja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700.&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #060f1e;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 16px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .ad-wrap {
+      background: linear-gradient(160deg, #0a1628 0%, #0d2240 60%, #0a3a5c 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      max-width: 540px;
+      width: 100%;
+    }
+
+    /* TOP BANNER */
+    .top-banner {
+      background: #f97316;
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 28px 28px 16px;
+      text-align: center;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .logo-icon {
+      width: 52px;
+      height: 52px;
+      background: #f97316;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .biz-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 34px;
+      color: #fff;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .biz-name span {
+      color: #f97316;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #94b8d4;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 46px;
+      color: #fff;
+      line-height: 1.05;
+      margin: 14px 0 6px;
+    }
+
+    .headline span {
+      color: #f97316;
+    }
+
+    .sub {
+      font-size: 14px;
+      color: #94b8d4;
+      margin-bottom: 22px;
+    }
+
+    /* SERVICE CARDS */
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 0 28px;
+      margin-bottom: 20px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .s-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .s-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .s-desc {
+      font-size: 12px;
+      color: #94b8d4;
+    }
+
+    /* ILLUSTRATION IMAGES */
+    .pics-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 0 28px;
+      margin-bottom: 20px;
+    }
+
+    .pic-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: #0d2240;
+      aspect-ratio: 4 / 3;
+    }
+
+    .pic-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .pic-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 22, 40, 0.85);
+      font-size: 11px;
+      font-weight: 700;
+      color: #f97316;
+      text-align: center;
+      padding: 5px 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* FEATURES ROW */
+    .features {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 20px 20px;
+    }
+
+    .feat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feat-dot {
+      width: 8px;
+      height: 8px;
+      background: #f97316;
+      border-radius: 50%;
+    }
+
+    .feat-text {
+      font-size: 11px;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* LOCATION */
+    .location-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 28px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+
+    .location-row span {
+      font-size: 13px;
+      color: #94b8d4;
+    }
+
+    .location-row strong {
+      color: #fff;
+      font-size: 13px;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 0 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      padding: 15px 32px;
+      width: 100%;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .wa-btn:hover {
+      background: #1ebe5c;
+      transform: scale(1.02);
+    }
+
+    .wa-btn:active {
+      transform: scale(0.98);
+    }
+
+    .phone-text {
+      font-size: 12px;
+      color: #94b8d4;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: rgba(0,0,0,0.3);
+      text-align: center;
+      padding: 12px;
+      font-size: 11px;
+      color: #4a6a88;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ad-wrap">
+
+    <!-- TOP BANNER -->
+    <div class="top-banner">⚡ Fast Response &nbsp;·&nbsp; Abuja &nbsp;·&nbsp; Same Day Service ⚡</div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="logo-row">
+        <div class="logo-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="8" width="20" height="13" rx="3" fill="white"/>
+            <rect x="11" y="21" width="8" height="3" rx="1" fill="white"/>
+            <line x1="15" y1="12" x2="15" y2="18" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+            <line x1="11" y1="15" x2="19" y2="15" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="biz-name">Olarewaju<span>Tech</span></div>
+          <div class="tagline">Cooling &amp; Refrigeration Specialists</div>
+        </div>
+      </div>
+
+      <div class="headline">Expert AC &amp;<br><span>Fridge Repair</span></div>
+      <div class="sub">Installation &nbsp;·&nbsp; Repairs &nbsp;·&nbsp; Maintenance &nbsp;·&nbsp; Abuja</div>
+    </div>
+
+    <!-- SERVICE CARDS -->
+    <div class="services">
+      <div class="service-card">
+        <div class="s-icon">❄️</div>
+        <div class="s-title">AC Repair</div>
+        <div class="s-desc">All brands &amp; models</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">🧊</div>
+        <div class="s-title">Fridge Repair</div>
+        <div class="s-desc">Fast diagnosis</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">🔧</div>
+        <div class="s-title">Installation</div>
+        <div class="s-desc">Professional setup</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">🛡️</div>
+        <div class="s-title">Maintenance</div>
+        <div class="s-desc">Extend lifespan</div>
+      </div>
+    </div>
+
+    <!-- ILLUSTRATION IMAGES -->
+    <div class="pics-row">
+
+      <!-- AC Illustration -->
+      <div class="pic-frame">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="150" fill="#0b2035"/>
+          <!-- AC unit body -->
+          <rect x="50" y="25" width="110" height="75" rx="7" fill="#1a3a5c" stroke="#2a5a8c" stroke-width="1.5"/>
+          <!-- screen -->
+          <rect x="62" y="36" width="86" height="53" rx="4" fill="#0d2a45"/>
+          <!-- cross icon -->
+          <line x1="90" y1="62" x2="120" y2="62" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+          <line x1="105" y1="47" x2="105" y2="77" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+          <!-- spinner ring -->
+          <ellipse cx="105" cy="57" rx="9" ry="9" fill="none" stroke="#25D366" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <!-- bottom vent -->
+          <rect x="62" y="96" width="86" height="4" rx="2" fill="#2a5a8c"/>
+          <!-- legs -->
+          <rect x="80" y="108" width="14" height="14" rx="3" fill="#1a3a5c" stroke="#2a5a8c"/>
+          <rect x="116" y="108" width="14" height="14" rx="3" fill="#1a3a5c" stroke="#2a5a8c"/>
+          <!-- wrench icon -->
+          <circle cx="38" cy="88" r="15" fill="#1a3a5c" stroke="#f97316" stroke-width="1.5"/>
+          <path d="M31 88 Q38 79 45 88" fill="none" stroke="#f97316" stroke-width="1.5"/>
+          <line x1="32" y1="92" x2="44" y2="92" stroke="#94b8d4" stroke-width="1" opacity="0.7"/>
+          <!-- label -->
+          <text x="100" y="143" fill="#94b8d4" font-size="9" text-anchor="middle" font-family="sans-serif">AC Unit Servicing</text>
+        </svg>
+        <div class="pic-label">Air Conditioner</div>
+      </div>
+
+      <!-- Fridge Illustration -->
+      <div class="pic-frame">
+        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="150" fill="#0b2035"/>
+          <!-- fridge body -->
+          <rect x="52" y="12" width="80" height="115" rx="7" fill="#1a3a5c" stroke="#2a5a8c" stroke-width="1.5"/>
+          <!-- top compartment -->
+          <rect x="60" y="20" width="64" height="52" rx="4" fill="#0d2a45"/>
+          <!-- bottom compartment -->
+          <rect x="60" y="78" width="64" height="44" rx="4" fill="#0d2a45"/>
+          <!-- divider -->
+          <line x1="60" y1="74" x2="124" y2="74" stroke="#2a5a8c" stroke-width="1.5"/>
+          <!-- handle top -->
+          <circle cx="121" cy="46" r="4" fill="#f97316" opacity="0.85"/>
+          <!-- handle bottom -->
+          <circle cx="121" cy="100" r="4" fill="#f97316" opacity="0.85"/>
+          <!-- cold waves top -->
+          <path d="M72 38 Q82 31 92 38 Q102 45 112 38" fill="none" stroke="#25D366" stroke-width="1.5"/>
+          <path d="M72 48 Q82 41 92 48 Q102 55 112 48" fill="none" stroke="#25D366" stroke-width="1.2" opacity="0.6"/>
+          <!-- cold waves bottom -->
+          <path d="M72 90 Q82 84 92 90 Q102 96 112 90" fill="none" stroke="#25D366" stroke-width="1.2" opacity="0.5"/>
+          <!-- tool box -->
+          <rect x="136" y="58" width="28" height="30" rx="5" fill="#1a3a5c" stroke="#2a5a8c"/>
+          <line x1="139" y1="65" x2="161" y2="65" stroke="#f97316" stroke-width="1.5"/>
+          <line x1="139" y1="72" x2="161" y2="72" stroke="#94b8d4" stroke-width="1" opacity="0.6"/>
+          <line x1="139" y1="79" x2="161" y2="79" stroke="#94b8d4" stroke-width="1" opacity="0.6"/>
+          <circle cx="148" cy="87" r="3" fill="#25D366" opacity="0.8"/>
+          <!-- label -->
+          <text x="92" y="143" fill="#94b8d4" font-size="9" text-anchor="middle" font-family="sans-serif">Refrigerator Repair</text>
+        </svg>
+        <div class="pic-label">Refrigerator</div>
+      </div>
+
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features">
+      <div class="feat">
+        <div class="feat-dot"></div>
+        <div class="feat-text">Same Day<br>Repair</div>
+      </div>
+      <div class="feat">
+        <div class="feat-dot"></div>
+        <div class="feat-text">Affordable<br>Rates</div>
+      </div>
+      <div class="feat">
+        <div class="feat-dot"></div>
+        <div class="feat-text">All Brands<br>Covered</div>
+      </div>
+      <div class="feat">
+        <div class="feat-dot"></div>
+        <div class="feat-text">Warranty<br>On Work</div>
+      </div>
+    </div>
+
+    <!-- LOCATION -->
+    <div class="location-row">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="7.5" cy="6.5" r="3" stroke="#f97316" stroke-width="1.5"/>
+        <path d="M7.5 1C4.46 1 2 3.46 2 6.5c0 3.75 5.5 8.5 5.5 8.5s5.5-4.75 5.5-8.5C13 3.46 10.54 1 7.5 1z"
+              stroke="#f97316" stroke-width="1.3" fill="none"/>
+      </svg>
+      <span>Serving all of</span>
+      <strong>Abuja &amp; Surroundings</strong>
+    </div>
+
+    <!-- WHATSAPP CTA -->
+    <div class="cta-section">
+      <a class="wa-btn"
+         href="https://wa.me/2347010715850?text=Hello%20OlarewajuTech!%20I%20need%20help%20with%20my%20AC%2FFridge."
+         target="_blank">
+        <!-- WhatsApp icon -->
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2C8.28 2 2 8.28 2 16c0 2.44.65 4.72 1.77 6.7L2 30l7.53-1.74A13.9 13.9 0 0016 30c7.72 0
+            14-6.28 14-14S23.72 2 16 2zm7.12 19.47c-.3.84-1.76 1.62-2.43 1.72-.65.1-1.46.14-2.36-.15-.54-.18
+            -1.24-.42-2.13-.82-3.74-1.62-6.18-5.42-6.37-5.67-.18-.25-1.5-2-.1-3.5.2-.22.53-.5.9-.5h.66c.2 0
+            .4.01.57.43l.73 1.78c.06.14.1.3.02.47l-.3.54c-.08.14-.16.28-.07.43.38.66 1.1 1.67 1.92
+            2.38.88.78 1.64 1.07 2.08 1.23.18.07.33.04.45-.07l.63-.7c.15-.17.37-.25.58-.18l2.28.9c.22.09.35.3.28.58z"/>
+        </svg>
+        Chat Us on WhatsApp
+      </a>
+      <div class="phone-text">+234 701 071 5850 &nbsp;·&nbsp; Available 7 days a week</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">© 2025 OlarewajuTech · Abuja, Nigeria</div>
+
+  </div>
+
+</body>
+</html>
